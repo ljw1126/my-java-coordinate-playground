@@ -1,27 +1,16 @@
 package rentcompany.car;
 
 public class K5 extends AbstractCar {
-    public K5(int tripDistance) {
-        super(tripDistance);
-    }
+    private static final double DISTANCE_PER_LITER = 13;
+    private String name;
 
-    @Override
-    public double getDistancePerLiter() {
-        return 13.0;
-    }
-
-    @Override
-    public double getTripDistance() {
-        return tripDistance;
+    public K5(double tripDistance) {
+        super(tripDistance, DISTANCE_PER_LITER);
+        this.name = "K5";
     }
 
     @Override
     public String getName() {
-        return "K5";
-    }
-
-    @Override
-    public double getChargeQuantity() {
-        return super.getChargeQuantity();
+        return name;
     }
 }

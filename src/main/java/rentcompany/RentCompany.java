@@ -1,30 +1,42 @@
 package rentcompany;
 
-import rentcompany.car.AbstractCar;
+import rentcompany.car.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RentCompany {
+    private static final String COLON_WITH_SPACE = " : ";
+    private static final String NEWLINE = System.getProperty("line.separator");
+    private static final String LITTER = "리터";
+    private static RentCompany rentCompany = null;
+    private List<Car> carList;
 
-    private List<AbstractCar> carList;
 
     private RentCompany() {
         this.carList = new ArrayList<>();
     }
 
-    static RentCompany create() {
-        return new RentCompany();
+    public static RentCompany create() {
+        if(rentCompany == null) {
+            rentCompany = new RentCompany();
+        }
+        return rentCompany;
     }
 
-    public void addCar(AbstractCar car) {
-        this.carList.add(car);
+    public void addCar(Car car) {
+        carList.add(car);
     }
 
     public String generateReport() {
         StringBuilder sb = new StringBuilder();
-        for(AbstractCar car : carList) {
-            sb.append(car.getName()).append(" : ").append(new Double(car.getChargeQuantity()).intValue()).append("리터\n");
+
+        for (Car car : carList) {
+            sb.append(car.getName())
+                    .append(COLON_WITH_SPACE)
+                    .append((int) car.getChargeQuantity())
+                    .append(LITTER)
+                    .append(NEWLINE);
         }
 
         return sb.toString();

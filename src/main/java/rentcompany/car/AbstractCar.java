@@ -1,23 +1,17 @@
 package rentcompany.car;
 
-public abstract class AbstractCar {
+public abstract class AbstractCar implements Car {
 
-    protected int tripDistance; // protected : 같은 패키지, 상속 받은 경우 접근 허용
+    private double tripDistance;
+    private double distancePerLiter;
 
-    public AbstractCar(int tripDistance) {
+    public AbstractCar(double tripDistance, double distancePerLiter) {
         this.tripDistance = tripDistance;
+        this.distancePerLiter = distancePerLiter;
     }
-
-    // 리터당 이동 거리. 즉, 연비
-    public abstract double getDistancePerLiter();
-
-    // 여행하려는 거리
-    public abstract double getTripDistance();
-
-    // 차종의 이름
-    public abstract String getName();
 
     public double getChargeQuantity() {
-        return getTripDistance() / getDistancePerLiter();
+        return tripDistance / distancePerLiter;
     }
+
 }
