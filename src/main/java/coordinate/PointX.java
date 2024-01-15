@@ -3,12 +3,11 @@ package coordinate;
 import java.util.Objects;
 
 public class PointX {
-    private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 24;
     private int x;
 
     public PointX(int x) {
-        if(x > MAX_VALUE || x < MIN_VALUE) {
+        if(x > MAX_VALUE) {
             throw new IllegalArgumentException("x 좌표는 0 ~ 24까지만 입력 가능합니다");
         }
         this.x = x;

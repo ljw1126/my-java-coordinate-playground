@@ -10,6 +10,8 @@ import static org.assertj.core.api.Assertions.offset;
 
 class LineTest {
 
+
+
     @DisplayName("")
     @Test
     void distanceBetweenPoint() {
