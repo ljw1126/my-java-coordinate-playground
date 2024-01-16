@@ -1,19 +1,14 @@
-import coordinate.model.Line;
-import coordinate.model.Point;
 import coordinate.View.InputView;
 import coordinate.View.OutputView;
-import coordinate.model.Rectangular;
-
-import java.util.List;
+import coordinate.model.Figure;
+import coordinate.model.FigureFactory;
 
 public class MainApplication {
     public static void main(String[] args) {
-        List<Point> points = InputView.scan();
-        //Line line = new Line(points);
-        Rectangular rectangular = new Rectangular(points);
+        Figure figure = FigureFactory.create(InputView.scan());
 
-        OutputView.draw(rectangular);
+        OutputView.draw(figure);
         System.out.println(OutputView.print());
-        System.out.println(rectangular.getAreaInfo());
+        System.out.println(figure.getAreaInfo());
     }
 }
