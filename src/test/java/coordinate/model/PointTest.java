@@ -1,4 +1,4 @@
-package coordinate;
+package coordinate.model;
 
 import coordinate.model.Point;
 import org.junit.jupiter.api.Test;
