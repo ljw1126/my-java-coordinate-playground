@@ -81,4 +81,16 @@ class InputViewTest {
         assertThat(matcher.group(2)).isEqualTo("24");
         assertThat(matcher.groupCount()).isEqualTo(2);
     }
+
+    @Test
+    void rectangularMatcher() {
+        // given
+        // when
+        String given = "(10,10)-(22,10)-(22,18)-(10,18)";
+        String regex = "^(\\([0-9]{1,2},[0-9]{1,2}\\))(-\\([0-9]{1,2},[0-9]{1,2}\\)){1,3}$";
+        Pattern pattern = Pattern.compile(regex);
+
+        // then
+        assertThat(pattern.matcher(given).find()).isTrue();
+    }
 }

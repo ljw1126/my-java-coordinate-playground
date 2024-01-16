@@ -1,6 +1,6 @@
 package coordinate.View;
 
-import coordinate.model.Line;
+import coordinate.model.Figure;
 
 public class OutputView {
     private static final int MIN_LENGTH = 0;
@@ -16,33 +16,33 @@ public class OutputView {
 
     private static StringBuilder sb = new StringBuilder();
 
-    public static void draw(Line line) {
-        drawRowLine(line);
+    public static void draw(Figure figure) {
+        drawRowLine(figure);
         sb.append(FOUR_BLANK).append("+");
         drawHorizontalLine();
         drawHorizontalNumber();
     }
 
-    private static void drawRowLine(Line line) {
+    private static void drawRowLine(Figure figure) {
         for(int y = MAX_LENGTH; y > MIN_LENGTH; y--) { // 24 ~ 1
             showRowNumber(y);
 
             sb.append(PIPELINE);
 
-            markPoint(y, line);
+            markPoint(y, figure);
 
             sb.append(NEW_LINE);
         }
     }
 
-    private static void markPoint(int y, Line line) {
+    private static void markPoint(int y, Figure figure) {
         for(int x = MIN_LENGTH; x <= MAX_LENGTH; x++) {
-            showMark(x, y, line);
+            showMark(x, y, figure);
         }
     }
 
-    private static void showMark(int x, int y, Line line) {
-        if(line.hasPoint(x, y)) {
+    private static void showMark(int x, int y, Figure figure) {
+        if(figure.hasPoint(x, y)) {
             sb.append(String.format("%s", MARK_OF_POINT));
             return;
         }

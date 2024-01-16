@@ -63,7 +63,7 @@ public class InputView {
     }
 
     private static void checkInputFormat(String input) {
-        Pattern pattern = Pattern.compile("^(\\([0-9]{1,2},[0-9]{1,2}\\))(-\\([0-9]{1,2},[0-9]{1,2}\\))$");
+        Pattern pattern = Pattern.compile("^(\\([0-9]{1,2},[0-9]{1,2}\\))(-\\([0-9]{1,2},[0-9]{1,2}\\)){1,3}$");
 
         if(!pattern.matcher(input).find()) {
             throw new IllegalArgumentException(INPUT_FORMAT);

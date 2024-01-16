@@ -19,6 +19,16 @@ public class Point {
         return pointY.getY();
     }
 
+    public double getDistance(Point other) {
+        double operand1 = getPow(this.getPointX() - other.getPointX());
+        double operand2 = getPow(this.getPointY() - other.getPointY());
+        return Math.sqrt(operand1 + operand2);
+    }
+
+    private double getPow(int subtractionValue) {
+        return Math.pow(subtractionValue, 2);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
