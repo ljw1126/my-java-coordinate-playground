@@ -1,6 +1,6 @@
 package coordinate.View;
 
-import coordinate.Line;
+import coordinate.model.Line;
 
 public class OutputView {
     private static final int MIN_LENGTH = 0;

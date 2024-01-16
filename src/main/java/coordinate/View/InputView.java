@@ -1,6 +1,6 @@
 package coordinate.View;
 
-import coordinate.Point;
+import coordinate.model.Point;
 
 import java.util.*;
 import java.util.regex.Matcher;

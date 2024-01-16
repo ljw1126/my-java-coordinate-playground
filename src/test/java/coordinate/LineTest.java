@@ -1,5 +1,7 @@
 package coordinate;
 
+import coordinate.model.Line;
+import coordinate.model.Point;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,5 +1,5 @@
-import coordinate.Line;
-import coordinate.Point;
+import coordinate.model.Line;
+import coordinate.model.Point;
 import coordinate.View.InputView;
 import coordinate.View.OutputView;
 
