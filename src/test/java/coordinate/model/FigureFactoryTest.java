@@ -70,4 +70,18 @@ class FigureFactoryTest {
                 .isInstanceOf(Rectangular.class)
                 .isEqualTo(new Rectangular(points));
     }
+
+    @Test
+    void createTriangle() {
+        // given
+        // when
+        points.add(new Point(10, 10));
+        points.add(new Point(14, 15));
+        points.add(new Point(20, 8));
+
+        // then
+        Assertions.assertThat(FigureFactory.create(points))
+                .isInstanceOf(Triangle.class)
+                .isEqualTo(new Triangle(points));
+    }
 }

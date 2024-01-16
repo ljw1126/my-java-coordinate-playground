@@ -43,6 +43,7 @@ public class InputView {
         return points;
     }
 
+    // 좌표 중복 검사
     private static void checkDuplicatePoint(List<Point> points) {
         if(points.size() != new HashSet(points).size()) {
             throw new IllegalArgumentException(INPUT_DUPLICATE);

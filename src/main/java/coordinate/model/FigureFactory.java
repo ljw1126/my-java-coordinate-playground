@@ -13,12 +13,14 @@ public class FigureFactory {
     private static final int MIN_POINT_SIZE = 2;
     private static final int MAX_POINT_SIZE = 4;
     private static final int NUM_OF_LINE = 2;
+    private static final int NUM_OF_TRIANGLE = 3;
     private static final int NUM_OF_RECTANGULAR = 4;
 
     private static final Map<Integer, Function<List<Point>, Figure>> factoryMap;
     static {
         factoryMap = new HashMap<>();
         factoryMap.put(NUM_OF_LINE, Line::new);
+        factoryMap.put(NUM_OF_TRIANGLE, Triangle::new);
         factoryMap.put(NUM_OF_RECTANGULAR, Rectangular::new);
     }
 
