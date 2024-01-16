@@ -6,8 +6,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 /**
- * 1. 상수로 직접 지정하지 말고 의미 있는 변수명 부여해서 사용하자
- * 2. Figure 생성시 중복 포인트 검사는 자식 클래스에서 책임지도록 하자
+ * 상수로 직접 지정하지 말고 의미 있는 변수명 부여해서 사용하자
  */
 public class FigureFactory {
     private static final String CREATE_EXCEPTION_MESSAGE = "데이터가 올바르지 않습니다";
