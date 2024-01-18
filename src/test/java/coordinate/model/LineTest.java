@@ -1,9 +1,7 @@
 package coordinate.model;
 
-import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.data.Offset.*;
+import static org.assertj.core.data.Offset.offset;
 
 class LineTest {
 
@@ -25,15 +23,15 @@ class LineTest {
 
     @Test
     void distance() {
-        double distance = line.getDistance();
+        double distance = line.getArea();
 
         assertThat(distance).isEqualTo(6.4, offset(0.1));
     }
 
     @Test
     void result() {
-        double distance = line.getDistance();
-        String resultMessage = line.getResult();
+        double distance = line.getArea();
+        String resultMessage = line.getAreaInfo();
 
         assertThat(resultMessage).isEqualTo("두 점 사이의 거리는 " + distance);
     }
