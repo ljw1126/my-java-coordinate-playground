@@ -1,6 +1,5 @@
 package coordinate.model;
 
-import java.util.HashSet;
 import java.util.List;
 
 // 헤론의 법칙

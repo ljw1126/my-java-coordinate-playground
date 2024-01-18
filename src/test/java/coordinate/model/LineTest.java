@@ -13,25 +13,32 @@ import static org.assertj.core.data.Offset.offset;
 
 class LineTest {
 
-    private Line line;
+    private Figure figure;
 
     @BeforeEach
     void setUp() {
         List<Point> points = Arrays.asList(Point.of(10, 10), Point.of(14, 15));
-        line = new Line(points);
+        figure = new FigureFactory().create(points);
+    }
+
+    @Test
+    void create() {
+        assertThat(figure)
+                .isInstanceOf(Line.class)
+                .isEqualTo(new Line(Arrays.asList(Point.of(10, 10), Point.of(14, 15))));
     }
 
     @Test
     void distance() {
-        double distance = line.getArea();
+        double distance = figure.getArea();
 
         assertThat(distance).isEqualTo(6.4, offset(0.1));
     }
 
     @Test
     void result() {
-        double distance = line.getArea();
-        String resultMessage = line.getAreaInfo();
+        double distance = figure.getArea();
+        String resultMessage = figure.getAreaInfo();
 
         assertThat(resultMessage).isEqualTo("두 점 사이의 거리는 " + distance);
     }
@@ -44,6 +51,6 @@ class LineTest {
 
     @AfterEach
     void tearDown() {
-        line = null;
+        figure = null;
     }
 }
