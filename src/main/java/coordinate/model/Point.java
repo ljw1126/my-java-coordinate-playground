@@ -30,6 +30,14 @@ public class Point {
         return value < MIN_VALUE || MAX_VALUE < value;
     }
 
+    public double calculateDistance(Point point) {
+        return Math.sqrt(squareDifference(x, point.x) + squareDifference(y, point.y));
+    }
+
+    private double squareDifference(int v1, int v2) {
+        return Math.pow(v2 - v1, 2);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
