@@ -1,6 +1,7 @@
 package coordinate.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Line {
     private static final String INVALID_ARGUMENT_ERROR = "선을 만드는 점은 두 개여야 합니다";
@@ -25,5 +26,18 @@ public class Line {
 
     public String getResult() {
         return PREFIX_MESSAGE + getDistance();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(points, line.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }
