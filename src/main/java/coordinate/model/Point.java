@@ -63,4 +63,11 @@ public class Point {
         return Objects.hash(x, y);
     }
 
+    public double calculateSlope(Point point) {
+        if(this.x == point.x) {
+            return Double.MAX_VALUE;
+        }
+
+        return Math.abs((point.y - this.y) / (point.x - this.x));
+    }
 }
