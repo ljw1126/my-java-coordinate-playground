@@ -22,7 +22,6 @@ public class InputView {
     }
 
     public Line create(String input) {
-        // 유효성 검사 - 형식이 맞는가, 좌표를 파싱했을 떄 유효한가(Point), 중복값은 없는가
         try {
             input = input.replaceAll(" ", "");
             checkValidPattern(input);
