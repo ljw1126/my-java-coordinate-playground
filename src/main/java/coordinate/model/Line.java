@@ -40,4 +40,8 @@ public class Line {
     public int hashCode() {
         return Objects.hash(points);
     }
+
+    public boolean hasPoint(int x, int y) {
+        return points.stream().anyMatch(point -> point.isSame(x, y));
+    }
 }
