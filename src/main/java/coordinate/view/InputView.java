@@ -1,6 +1,7 @@
 package coordinate.view;
 
-import coordinate.model.Line;
+import coordinate.model.Figure;
+import coordinate.model.FigureFactory;
 import coordinate.model.Point;
 
 import java.util.ArrayList;
@@ -16,17 +17,17 @@ public class InputView {
     private static final String DUPLICATE_POINT = "중복 좌표가 존재 합니다";
     private static final Scanner sc = new Scanner(System.in);
 
-    public Line inputCoordinate() {
+    public Figure inputCoordinate() {
         System.out.println(INPUT_MESSAGE);
         return create(sc.next());
     }
 
-    public Line create(String input) {
+    public Figure create(String input) {
         try {
             input = input.replaceAll(" ", "");
             checkValidPattern(input);
             List<Point> points = parsePoints(input);
-            return new Line(points);
+            return new FigureFactory().create(points);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return inputCoordinate();
@@ -56,7 +57,7 @@ public class InputView {
     }
 
     private void checkValidPattern(String input) {
-        Pattern pattern = Pattern.compile("\\(\\d{1,2},\\d{1,2}\\)-\\(\\d{1,2},\\d{1,2}\\)");
+        Pattern pattern = Pattern.compile("\\(\\d{1,2},\\d{1,2}\\)(-\\(\\d{1,2},\\d{1,2}\\)){1,3}");
         Matcher matcher = pattern.matcher(input);
 
         if(!matcher.matches()) {

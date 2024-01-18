@@ -1,6 +1,6 @@
 package coordinate.view;
 
-import coordinate.model.Line;
+import coordinate.model.Figure;
 
 public class OutputView {
 
@@ -15,8 +15,8 @@ public class OutputView {
 
 
     private final StringBuilder sb = new StringBuilder();
-    public void draw(Line line) {
-        showVertical(line);
+    public void draw(Figure figure) {
+        showVertical(figure);
         showHorizontal();
         showHorizontalPoint();
 
@@ -42,17 +42,17 @@ public class OutputView {
         sb.append(NEW_LINE);
     }
 
-    private void showVertical(Line line) {
+    private void showVertical(Figure figure) {
         for(int y = MAX_POSITION; y > MIN_POSITION; y--) {
             drawVerticalAxis(y);
-            drawPoint(y, line);
+            drawPoint(y, figure);
             sb.append(NEW_LINE);
         }
     }
 
-    private void drawPoint(int y, Line line) {
+    private void drawPoint(int y, Figure figure) {
         for(int x = MIN_POSITION; x <= MAX_POSITION; x++) {
-            if(line.hasPoint(x, y)) {
+            if(figure.hasPoint(x, y)) {
                 sb.append(String.format("%s", POINT_MARK));
                 continue;
             }
@@ -70,7 +70,7 @@ public class OutputView {
         sb.append(FOUR_BLACK).append(PIPELINE);
     }
 
-    public void printInfo(Line line) {
-        System.out.println(line.getResult());
+    public void printInfo(Figure figure) {
+        System.out.println(figure.getAreaInfo());
     }
 }

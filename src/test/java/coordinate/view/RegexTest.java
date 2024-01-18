@@ -1,13 +1,11 @@
 package coordinate.view;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RegexTest {
 
@@ -41,5 +39,16 @@ public class RegexTest {
         assertThat(matcher.group()).isEqualTo("(14,15)");
         assertThat(matcher.group(1)).isEqualTo("14");
         assertThat(matcher.group(2)).isEqualTo("15");
+    }
+
+    @Test
+    void rectangular() {
+        String input = "(10,10)-(22,10)-(22,18)-(10,18)";
+        String regex = "\\(\\d{1,2},\\d{1,2}\\)(-\\(\\d{1,2},\\d{1,2}\\)){1,3}";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        assertThat(matcher.find()).isTrue();
     }
 }
