@@ -38,6 +38,18 @@ public class Point {
         return Math.pow(v2 - v1, 2);
     }
 
+    public boolean isSame(int x, int y) {
+        return this.x == x && this.y == y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -51,7 +63,4 @@ public class Point {
         return Objects.hash(x, y);
     }
 
-    public boolean isSame(int x, int y) {
-        return this.x == x && this.y == y;
-    }
 }
