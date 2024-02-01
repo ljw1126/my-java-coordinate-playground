@@ -1,6 +1,6 @@
 package view;
 
-import model.Point;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +16,21 @@ public class InputView {
     public InputView() {
     }
 
-    public List<Point> input() {
+    public Figure input() {
         System.out.println(INPUT_MESSAGE);
         Scanner sc = new Scanner(System.in);
         return process(sc);
     }
 
-    private List<Point> process(Scanner sc) {
+    private Figure process(Scanner sc) {
         try {
             String input = sc.next();
 
             invalidCoordinateInput(input);
 
-            return parsePoints(input);
+            List<Point> points = parsePoints(input);
+
+            return new FigureFactory().create(points);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             return input();
@@ -52,7 +54,7 @@ public class InputView {
     }
 
     private void invalidCoordinateInput(String input) {
-        final String regexp = "\\(\\d{1,2},\\d{1,2}\\)-\\(\\d{1,2},\\d{1,2}\\)";
+        final String regexp = "\\(\\d{1,2},\\d{1,2}\\)(-\\(\\d{1,2},\\d{1,2}\\)){1,3}";
         Pattern pattern = Pattern.compile(regexp);
         Matcher matcher = pattern.matcher(input);
 

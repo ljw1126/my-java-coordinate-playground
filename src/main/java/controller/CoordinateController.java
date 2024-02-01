@@ -1,6 +1,6 @@
 package controller;
 
-import model.Line;
+import model.Figure;
 import view.InputView;
 import view.OutputView;
 
@@ -9,9 +9,9 @@ public class CoordinateController {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
 
-        Line line = new Line(inputView.input());
+        Figure figure = inputView.input();
 
-        outputView.draw(line.getPoints());
-        outputView.showResult(line.result());
+        outputView.draw(figure.getPoints());
+        outputView.showResult(figure.result());
     }
 }
