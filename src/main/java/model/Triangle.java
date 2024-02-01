@@ -20,10 +20,11 @@ public class Triangle extends AbstractFigure {
         checkInvalidTriangle(points);
     }
 
-    // 기울기 : 두 점을 연결하는 직선의 경사를 나타낸다
-    // 두 점의 기울기가 무한대라면 x축과 이루는 각도는 90도
-    // 직선 기울기가 같다면 하나의 직선으로 겹쳐진 모양이다
-    // 기울기 == 0 은 수평, 기울기 == 무한대는 수직을 나타냄
+    /**
+     * 기울기 : 두 점을 연결하는 직선의 경사를 나타낸다
+     * 두 점의 기울기가 무한대(x1 == x2)라면 x축과 이루는 각도는 90도
+     * 기울기(y1 == y2) == 0 은 수평, 기울기(x1 == x2) == 무한대는 수직을 나타냄
+     */
     private static void checkInvalidTriangle(List<Point> points) {
         if(points.size() != POINT_SIZE) {
             throw new IllegalArgumentException(INVALID_POINT_SIZE);
