@@ -30,7 +30,7 @@ public class InputView {
 
             List<Point> points = parsePoints(input);
 
-            return new FigureFactory().create(points);
+            return FigureFactory.create(points);
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             return input();

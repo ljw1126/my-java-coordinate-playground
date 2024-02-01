@@ -3,7 +3,7 @@ package model;
 import java.util.*;
 import java.util.function.Function;
 
-public class FigureFactory implements FigureCreator {
+public class FigureFactory {
 
     private static final String DUPLICATE_POINT = "중복된 좌표가 포함되어 있습니다";
 
@@ -14,9 +14,8 @@ public class FigureFactory implements FigureCreator {
         createMap.put(Rectangular.POINT_SIZE, Rectangular::new);
         createMap.put(Triangle.POINT_SIZE, Triangle::new);
     }
-
-    @Override
-    public Figure create(List<Point> points) {
+    
+    public static Figure create(List<Point> points) {
         checkDuplicatePoint(points);
         return createMap.get(points.size()).apply(points);
     }

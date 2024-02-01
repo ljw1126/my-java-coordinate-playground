@@ -12,8 +12,7 @@ class FigureFactoryTest {
     @Test
     void createLine() {
         List<Point> points = Arrays.asList(new Point(10, 10), new Point(14, 15));
-        FigureFactory figureFactory = new FigureFactory();
-        Figure figure = figureFactory.create(points);
+        Figure figure = FigureFactory.create(points);
 
         assertThat(figure).isInstanceOf(Line.class);
     }
@@ -21,8 +20,7 @@ class FigureFactoryTest {
     @Test
     void createRectangular() {
         List<Point> points = Arrays.asList(new Point(10, 10), new Point(22, 10), new Point(22, 18), new Point(10, 18));
-        FigureFactory figureFactory = new FigureFactory();
-        Figure figure = figureFactory.create(points);
+        Figure figure = FigureFactory.create(points);
 
         assertThat(figure).isInstanceOf(Rectangular.class);
     }
