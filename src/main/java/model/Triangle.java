@@ -12,12 +12,30 @@ public class Triangle extends AbstractFigure {
     private static final String INVALID_POINT_SIZE = String.format("삼각형을 그리기 위한 점은 %s개가 필요합니다", POINT_SIZE);
     private static final String RESULT_PREFIX = "삼각형 넓이는 ";
 
+    private static final String INVALID_TRIANGLE_SHAPE = "유효하지 않은 삼각형입니다";
+
     public Triangle(List<Point> points) {
         super(points);
 
+        checkInvalidTriangle(points);
+    }
+
+    // 기울기 : 두 점을 연결하는 직선의 경사를 나타낸다
+    // 두 점의 기울기가 무한대라면 x축과 이루는 각도는 90도
+    // 직선 기울기가 같다면 하나의 직선으로 겹쳐진 모양이다
+    // 기울기 == 0 은 수평, 기울기 == 무한대는 수직을 나타냄
+    private static void checkInvalidTriangle(List<Point> points) {
         if(points.size() != POINT_SIZE) {
             throw new IllegalArgumentException(INVALID_POINT_SIZE);
         }
+
+        if(getSlope(points.get(0), points.get(1)) == getSlope(points.get(0), points.get(2))) {
+            throw new IllegalStateException(INVALID_TRIANGLE_SHAPE);
+        }
+    }
+
+    private static double getSlope(Point point, Point other) {
+        return point.calculateSlope(other);
     }
 
     @Override

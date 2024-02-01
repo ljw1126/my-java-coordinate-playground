@@ -42,6 +42,15 @@ public class Point {
         return Math.pow(value, 2);
     }
 
+    //두 점의 기울기는 x축과 이루는 각도를 나타낸다(tan)
+    public double calculateSlope(Point other) {
+        if(this.x == other.x) { // *ArithmeticException / by zero 방지 부분
+            return Double.MAX_VALUE;
+        }
+
+        return Math.abs((other.y - this.y) / (other.x - this.x));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
