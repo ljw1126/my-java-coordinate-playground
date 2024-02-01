@@ -1,7 +1,13 @@
 package model;
 
-public interface Figure {
-    Points getPoints();
+import java.util.List;
 
-    String result();
+public interface Figure {
+    List<Point> getPoints();
+
+    String getAreaInfo();
+
+    double getArea();
+
+    boolean hasPoint(int x, int y);
 }

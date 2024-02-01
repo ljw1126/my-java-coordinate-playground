@@ -14,21 +14,12 @@ public class Line extends AbstractFigure{
         }
     }
 
-    public double calculateDistance() {
-        double differenceX = points.getDifferenceX();
-        double differenceY = points.getDifferenceY();
-
-        return sqrt(pow(differenceX) + pow(differenceY));
-    }
-
-
-    @Override
-    public Points getPoints() {
-        return points;
+    public double getArea() {
+        return this.points.get(0).calculateDistance(this.points.get(1));
     }
 
     @Override
-    public String result() {
-        return RESULT_PREFIX + calculateDistance();
+    public String getAreaInfo() {
+        return RESULT_PREFIX + getArea();
     }
 }

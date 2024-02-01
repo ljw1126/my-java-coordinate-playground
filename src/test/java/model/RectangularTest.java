@@ -25,6 +25,6 @@ class RectangularTest {
 
         double expected = 96.0;
 
-        assertThat(rectangular.calculateArea()).isEqualTo(expected);
+        assertThat(rectangular.getArea()).isEqualTo(expected);
     }
 }

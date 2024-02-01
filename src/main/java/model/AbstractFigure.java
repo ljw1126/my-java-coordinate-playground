@@ -4,22 +4,20 @@ import java.util.List;
 
 public abstract class AbstractFigure implements Figure {
 
-    protected final Points points;
+    protected final List<Point> points;
 
     public AbstractFigure(List<Point> points) {
-        this.points = new Points(points);
+        this.points = points;
     }
 
-    protected double abs(double value) {
-        return Math.abs(value);
+    @Override
+    public List<Point> getPoints() {
+        return this.points;
     }
 
-    protected double pow(double value) {
-        return Math.pow(value, 2);
+    @Override
+    public boolean hasPoint(int x, int y) {
+        return this.points.stream()
+                .anyMatch(point -> point.isSame(x, y));
     }
-
-    protected double sqrt(double value) {
-        return Math.sqrt(value);
-    }
-
 }

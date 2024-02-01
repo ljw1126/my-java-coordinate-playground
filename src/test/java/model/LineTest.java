@@ -22,7 +22,7 @@ class LineTest {
     void calculateDistance() {
         List<Point> points = Arrays.asList(new Point(10, 10), new Point(14, 15));
         Line line = new Line(points);
-        double distance = line.calculateDistance();
+        double distance = line.getArea();
 
         double expected = 6.4;
 

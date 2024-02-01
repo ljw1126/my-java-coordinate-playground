@@ -11,7 +11,7 @@ public class CoordinateController {
 
         Figure figure = inputView.input();
 
-        outputView.draw(figure.getPoints());
-        outputView.showResult(figure.result());
+        outputView.draw(figure);
+        outputView.showResult(figure.getAreaInfo());
     }
 }

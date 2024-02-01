@@ -12,6 +12,7 @@ public class FigureFactory implements FigureCreator {
         createMap = new HashMap<>();
         createMap.put(Line.POINT_SIZE, Line::new);
         createMap.put(Rectangular.POINT_SIZE, Rectangular::new);
+        createMap.put(Triangle.POINT_SIZE, Triangle::new);
     }
 
     @Override

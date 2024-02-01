@@ -1,6 +1,6 @@
 package view;
 
-import model.Points;
+import model.Figure;
 
 public class OutputView {
 
@@ -20,8 +20,8 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public void draw(Points points) {
-        drawVerticalLineAndPoint(points);
+    public void draw(Figure figure) {
+        drawVerticalLineAndPoint(figure);
         drawHorizontalLine();
         drawHorizontalNumber();
         show();
@@ -54,17 +54,17 @@ public class OutputView {
         }
     }
 
-    private void drawVerticalLineAndPoint(Points points) {
+    private void drawVerticalLineAndPoint(Figure figure) {
         for(int y = MAX_VALUE; y >= MIN_VALUE; y--) {
             drawVerticalLine(y);
-            drawVerticalPoint(y, points);
+            drawVerticalPoint(y, figure);
             sb.append(NEW_LINE);
         }
     }
 
-    private void drawVerticalPoint(int y, Points points) {
+    private void drawVerticalPoint(int y, Figure figure) {
         for(int x = MIN_VALUE; x <= MAX_VALUE; x++) {
-            if(points.hasPoint(x, y)) {
+            if(figure.hasPoint(x, y)) {
                 sb.append(String.format("%4s", POINT_MARK));
             }
             sb.append(FOUR_BLANK);

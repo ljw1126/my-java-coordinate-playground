@@ -34,6 +34,14 @@ public class Point {
         return this.x == x && this.y == y;
     }
 
+    public double calculateDistance(Point other) {
+        return Math.sqrt(pow(this.x - other.x) + pow(this.y - other.y));
+    }
+
+    public double pow(double value) {
+        return Math.pow(value, 2);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -22,7 +22,9 @@ public class RegexpTest {
                 Arguments.arguments("(10,10)-(14,15)",
                         Arrays.asList(new Point(10, 10), new Point(14, 15))),
                 Arguments.arguments("(10,10)-(22,10)-(22,18)-(10,18)",
-                        Arrays.asList(new Point(10, 10), new Point(22, 10), new Point(22, 18), new Point(10, 18)))
+                        Arrays.asList(new Point(10, 10), new Point(22, 10), new Point(22, 18), new Point(10, 18))),
+                Arguments.arguments("(10,10)-(14,15)-(20,8)",
+                        Arrays.asList(new Point(10, 10), new Point(14, 15), new Point(20, 8)))
         );
     }
 
