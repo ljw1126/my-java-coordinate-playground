@@ -1,12 +1,9 @@
 package model;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toList;
 
 public class Points {
     private List<Point> points;
@@ -32,7 +29,7 @@ public class Points {
 
         return false;
     }
-    
+
     public List<Integer> getDistinctPoint(Function<Point, Integer> mapFunction) {
         return this.points.stream()
                 .map(mapFunction)
